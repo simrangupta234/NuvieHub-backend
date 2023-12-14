@@ -3,36 +3,29 @@ const dotenv = require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 3000;
 const connectDb = require("./config/dbConnection");
+const cors = require("cors");
+
 connectDb();
+
+app.use(
+  cors({
+    origin: "http://127.0.0.1:5173",
+    credentials: true,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    optionsSuccessStatus: 204,
+  })
+);
+
+
 app.use(express.json());
 app.use("/api/movies", require("./routes/movieRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
-var cors = require("cors");
 
-app.use(cors());
-
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methodes", "POST, GET, PUT, DELETE");
-  res.header(
-    "access-Control-Allow-Headers",
-    "Content-type, X-Auth-Token, Origin, Autherization"
-  );
-  next();
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
 
-// const corsOptions = {
-//   origin: "http://localhost:5173",
-//   credentials: true, //access-control-allow-credentials:true
-//   optionSuccessStatus: 200,
-// };
-// app.use(cors(corsOptions));
 
-// header("Access-Control-Allow-Origin: *");
-// header("Access-Control-Allow-Methodes: POST, GET, PUT, DELETE");
-// header(
-//   "access-Control-Allow-Headers: Content-type, X-Auth-Token, Origin, Autherization"
-// );
 
 // app.get('/', (req, res) => {
 //   res.send({message : "Hello World!"})
@@ -66,6 +59,3 @@ app.use((req, res, next) => {
 
 // app.use(middlewares)
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});

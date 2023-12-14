@@ -1,25 +1,38 @@
 const express = require("express");
-// const fetch = require("node-fetch");
-const connectDb = require("./config/dbConnection");
 const dotenv = require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 3000;
-
+const connectDb = require("./config/dbConnection");
 connectDb();
 app.use(express.json());
 app.use("/api/movies", require("./routes/movieRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
+var cors = require("cors");
 
+app.use(cors());
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methodes", "POST, GET, PUT, DELETE");
+  res.header(
+    "access-Control-Allow-Headers",
+    "Content-type, X-Auth-Token, Origin, Autherization"
+  );
+  next();
+});
 
-// const moviesData = async () => {
-//   const data = fetch(
-//     "https://api.themoviedb.org/3/trending/all/day?api_key=8f003ce108004712f54fccae5f9d1692"
-//   );
-
-//   const res = await data.json();
-// console.log(res);
+// const corsOptions = {
+//   origin: "http://localhost:5173",
+//   credentials: true, //access-control-allow-credentials:true
+//   optionSuccessStatus: 200,
 // };
+// app.use(cors(corsOptions));
+
+// header("Access-Control-Allow-Origin: *");
+// header("Access-Control-Allow-Methodes: POST, GET, PUT, DELETE");
+// header(
+//   "access-Control-Allow-Headers: Content-type, X-Auth-Token, Origin, Autherization"
+// );
 
 // app.get('/', (req, res) => {
 //   res.send({message : "Hello World!"})

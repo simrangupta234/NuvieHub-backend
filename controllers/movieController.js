@@ -21,24 +21,25 @@ const getMovie = asyncHandler(async (req, res) => {
   res.status(200).json(movie);
 });
 
-
-//@desc add new movie
-//@route POST /api/movies
+//@desc Get a movie
+//@route GET /api/movies
 //@access public
 const addMovie = asyncHandler(async (req, res) => {
   console.log("The req body is : ", req.body);
   const { id, title, year, description } = req.body;
 
-//   if (!id || !title || !year || !description) {
-//     res.status(400);
-//     throw Error("All fields are mendatory");
-//   }
+  if (!id || !title || !year || !description) {
+    res.status(400);
+    throw new Error("All fields are mandatory");
+  }
+
   const movie = await Movie.create({
     id,
     title,
     year,
     description,
   });
+
   res.status(201).json(movie);
 });
 

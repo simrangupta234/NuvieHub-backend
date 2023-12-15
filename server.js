@@ -9,13 +9,12 @@ connectDb();
 
 app.use(
   cors({
-    origin: "http://127.0.0.1:5173",
+    origin: "http://localhost:5173",
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     optionsSuccessStatus: 204,
   })
 );
-
 
 app.use(express.json());
 app.use("/api/movies", require("./routes/movieRoutes"));

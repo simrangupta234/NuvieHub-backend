@@ -7,8 +7,8 @@ const User = require("../models/userModel");
 //@route POST /api/users/signup
 //@access public
 const signupUser = asyncHandler(async (req, res) => {
-  const {  email, password } = req.body;
-  if ( !email || !password) {
+  const { email, password } = req.body;
+  if (!email || !password) {
     res.status(400);
     throw new Error("All fields are mandatory!");
   }
@@ -28,7 +28,19 @@ const signupUser = asyncHandler(async (req, res) => {
 
   // console.log(`User created ${user}`);
   if (user) {
-    res.status(201).json({ _id: user.id, email: user.email });
+    const accessToken = jwt.sign(
+      {
+        user: {
+          email: user.email,
+          id: user.id,
+        },
+      },
+      process.env.ACCESS_TOKEN_SECERT,
+      { expiresIn: "15m" }
+    );
+    res
+      .status(201)
+      .json({ _id: user.id, email: user.email, accessToken: accessToken });
   } else {
     res.status(400);
     throw new Error("User data is not valid");
@@ -47,7 +59,9 @@ const loginUser = asyncHandler(async (req, res) => {
   }
   const user = await User.findOne({ email });
   //compare password with hashedpassword
-  if (user && (await bcrypt.compare(password, user.password))) {
+  if (!user) {
+    res.json({ message: "No email found" });
+  } else if (user && (await bcrypt.compare(password, user.password))) {
     const accessToken = jwt.sign(
       {
         user: {
@@ -59,6 +73,8 @@ const loginUser = asyncHandler(async (req, res) => {
       { expiresIn: "15m" }
     );
     res.status(200).json({ accessToken });
+  } else if (user) {
+    res.json({ message: "IncorrectPassword" });
   } else {
     res.status(401);
     throw new Error("email or password is not valid");
@@ -72,4 +88,18 @@ const currentUser = asyncHandler(async (req, res) => {
   res.json(req.user);
 });
 
-module.exports = { signupUser, loginUser, currentUser };
+//@desc For welcome back
+//@route POST /api/users/login2
+//@access public
+const loginUser2 = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+  const userAvailable = await User.findOne({ email });
+  if (userAvailable) {
+    res.json({ email: email });
+  } else {
+    res.json({ message: "no user" });
+  }
+});
+
+module.exports = { signupUser, loginUser, currentUser, loginUser2 };

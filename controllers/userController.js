@@ -2,6 +2,7 @@ const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
+const userModel = require("../models/userModel");
 
 //@desc signup a user
 //@route POST /api/users/signup
@@ -58,10 +59,11 @@ const loginUser = asyncHandler(async (req, res) => {
     throw new Error("All fields are mandatory!");
   }
   const user = await User.findOne({ email });
-  //compare password with hashedpassword
   if (!user) {
-    res.json({ message: "No email found" });
-  } else if (user && (await bcrypt.compare(password, user.password))) {
+    res.json({ message: "Email not found" });
+  }
+
+  if (await bcrypt.compare(password, user.password)) {
     const accessToken = jwt.sign(
       {
         user: {
@@ -70,14 +72,11 @@ const loginUser = asyncHandler(async (req, res) => {
         },
       },
       process.env.ACCESS_TOKEN_SECERT,
-      { expiresIn: "15m" }
+      { expiresIn: "1m" }
     );
     res.status(200).json({ accessToken });
-  } else if (user) {
-    res.json({ message: "IncorrectPassword" });
   } else {
-    res.status(401);
-    throw new Error("email or password is not valid");
+    res.json({ message: "incorrect password" });
   }
 });
 

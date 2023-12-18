@@ -1,5 +1,10 @@
 const asyncHandler = require("express-async-handler");
 const Movie = require("../models/movieModel");
+const MovieData = require("../data/movie.json");
+
+const movieApi = asyncHandler(async (req, res) => {
+  res.json(MovieData);
+});
 
 //@desc Get all movies
 //@route GET /api/movies
@@ -26,9 +31,29 @@ const getMovie = asyncHandler(async (req, res) => {
 //@access public
 const addMovie = asyncHandler(async (req, res) => {
   console.log("The req body is : ", req.body);
-  const { id, title, year, description } = req.body;
+  const {
+    id,
+    title,
+    release_year,
+    duration,
+    genre,
+    overview,
+    starring,
+    poster,
+    thumbnail,
+  } = req.body;
 
-  if (!id || !title || !year || !description) {
+  if (
+    !id ||
+    !title ||
+    !release_year ||
+    !duration ||
+    !genre ||
+    !overview ||
+    !starring ||
+    !poster ||
+    !thumbnail
+  ) {
     res.status(400);
     throw new Error("All fields are mandatory");
   }
@@ -36,11 +61,28 @@ const addMovie = asyncHandler(async (req, res) => {
   const movie = await Movie.create({
     id,
     title,
-    year,
-    description,
+    release_year,
+    duration,
+    genre,
+    overview,
+    starring,
+    poster,
+    thumbnail,
   });
 
   res.status(201).json(movie);
+});
+
+const importData = asyncHandler(async (req, res) => {
+  console.log(MovieData);
+  try {
+    const movie = await Movie.create(MovieData);
+    (movie);
+    console.log("data successfully imported");
+    // to exit the process
+  } catch (error) {
+    console.log("error", error);
+  }
 });
 
 //@desc Update A movie
@@ -73,4 +115,12 @@ const deleteMovie = asyncHandler(async (req, res) => {
   res.status(200).json(movie);
 });
 
-module.exports = { getMovies, getMovie, addMovie, updateMovie, deleteMovie };
+module.exports = {
+  movieApi,
+  getMovies,
+  getMovie,
+  addMovie,
+  updateMovie,
+  deleteMovie,
+  importData,
+};

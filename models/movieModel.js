@@ -10,13 +10,33 @@ const movieSchema = mongoose.Schema(
       type: String,
       require: [true, "Please give title"],
     },
-    year: {
+    release_year: {
       type: Number,
       require: [true, "Please Add the release year"],
     },
-    description: {
+    duration: {
       type: String,
-      require: [true, "Give Description for the movie"],
+      require: [true, "Give the duration"]
+    },
+    genre: {
+      type: String,
+      require: [true, "Give the genre of the movie"]
+    },
+    overview: {
+      type: String,
+      require: [true, "Provide overview for the movie"],
+    },
+    starring: {
+      type: String,
+      require: [true, "Provide stars of the movie"],
+    },
+    poster: {
+      type: String,
+      require: [true, "Give poster for the movie"],
+    },
+    thumbnail: {
+      type: String,
+      require: [true, "Give thumbnail for the movie"],
     },
   },
   {

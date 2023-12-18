@@ -7,11 +7,12 @@ const {
   addMovie,
   updateMovie,
   deleteMovie,
+  movieApi,
 } = require("../controllers/movieController");
 // const validateToken = require("../middlewares/validateTokenHandler");
 
 // router.use(validateToken);
-router.route("/").get(getMovies).post(addMovie);
+router.route("/").post(addMovie).get(movieApi);
 router.route("/:id").get(getMovie).put(updateMovie).delete(deleteMovie);
 
 module.exports = router;

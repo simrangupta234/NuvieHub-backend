@@ -4,9 +4,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 const connectDb = require("./config/dbConnection");
 const cors = require("cors");
+const { importData } = require("./controllers/movieController");
 
 connectDb();
-
+importData();
 app.use(
   cors({
     origin: "http://localhost:5173",
@@ -15,6 +16,10 @@ app.use(
     optionsSuccessStatus: 204,
   })
 );
+
+
+app.use('/assets', express.static('assets'))
+
 
 app.use(express.json());
 app.use("/api/movies", require("./routes/movieRoutes"));

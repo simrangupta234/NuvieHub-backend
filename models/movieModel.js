@@ -38,6 +38,10 @@ const movieSchema = mongoose.Schema(
       type: String,
       require: [true, "Give thumbnail for the movie"],
     },
+    preview:{
+      type: Array,
+      require: [true, "Give previews for the movie"]
+    }
   },
   {
     timeStamps: true,

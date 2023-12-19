@@ -7,7 +7,6 @@ const cors = require("cors");
 const { importData } = require("./controllers/movieController");
 
 connectDb();
-importData();
 app.use(
   cors({
     origin: "http://localhost:5173",

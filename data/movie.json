@@ -1,114 +1,172 @@
-{
-    "results": [
-        {
-            "id": "1",
-            "title": "3-Idiots",
-            "release_year": "2010",
-            "duration": "3h",
-            "genre": "Comedy, Drama",
-            "overview": "Two friends are searching for their long lost companion. They revisit their college days and recall the memories of their friend who inspired them to think differently, even as the rest of the world called them idiots.",
-            "starring": "Aamir Khan,Madhvan, Sharman Joshi, Kareena Kapoor",
-            "poster": "/assets/3idiotsposter.jpg",
-            "thumbnail": "/assets/3idiotsthumnail.jpg"
-        },
-        {
-            "id": "2",
-            "title": "Extraction",
-            "release_year": "2020",
-            "duration": "1h 58m",
-            "genre": "Action",
-            "overview": "A hardened gun-for-hire's latest mission becomes a soul-searching race to survive when he's sent into Bangladesh to rescue a drug lord's kidnapped son.",
-            "starring": "Chris Hemsworth,Rudhraksh Jaiswal,Randeep Hooda",
-            "poster": "/assets/extractionposter.jpg",
-            "thumbnail": "/assets/extractionthumbnail.jpg"
-        },
-        {
-            "id": "3",
-            "title": "Barbie",
-            "release_year": "2023",
-            "duration": "1h 58m",
-            "genre": "Adventure, Comedy, Fantasy",
-            "overview": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
-            "starring": "Margot Robbie, Ryan Gosling, America Ferrera, Kate McKinnon",
-            "poster": "/assets/barbieposter.jpg",
-            "thumbnail": "/assets/barbiethumbnail.jpg"
-        },
-        {
-            "id": "4",
-            "title": "SeetaRaman",
-            "release_year": "2022",
-            "duration": "2h 43m",
-            "genre": "Action, Drama, Mystery",
-            "overview": "An orphan soldier, Lieutenant Ram's life changes, after he gets a letter from a girl named Sita. He meets her and love blossoms between them. When he comes back to his camp in Kashmir,After he gets caught in jail, he sends a letter to Sita which won't reach her.",
-            "starring": "Dulquer Salmaan, Mrunal Thakur, Rashmika Mandanna",
-            "poster": "/assets/seetaramanposter.jpg",
-            "thumbnail": "/assets/seetaramanthumbnail.jpg"
-        },
-        {
-            "id": "5",
-            "title": "Life of Pi",
-            "release_year": "2012",
-            "duration": "2h 7m",
-            "genre": "Adventure, Drama, Fantasy",
-            "overview": "A young man who survives a disaster at sea is hurtled into an epic journey of adventure and discovery. While cast away, he forms an unexpected connection with another survivor: a fearsome Bengal tiger.",
-            "starring": " Suraj Sharma, Irrfan Khan, Adil Hussain",
-            "poster": "/assets/lifeofpi.jpg",
-            "thumbnail": "/assets/lifeofpithumbnail.jpg"
-        },
-        {
-            "id": "6",
-            "title": "Beauty and The Beast",
-            "release_year": "2017",
-            "duration": "2h 9m",
-            "genre": "Adventure, Family, Fantasy",
-            "overview": "A selfish Prince is cursed to become a monster for the rest of his life, unless he learns to fall in love with a beautiful young woman he keeps prisoner.",
-            "starring": "Emma Watson, Dan Stevens, Luke Evans",
-            "poster": "/assets/beautyandthebeastposter.jpg",
-            "thumbnail": "/assets/beautyandthebeastthumbnail.webp"
-        },
-        {
-            "id": "7",
-            "title": "Partner",
-            "release_year": "2007",
-            "duration": "2h 35m",
-            "genre": "Comedy, Drama, Romance",
-            "overview": "A 'Love Guru' assists other males, woos a widowed single mother, but becomes embroiled in controversies.",
-            "starring": "Salman Khan, Govinda, Lara Dutta",
-            "poster": "/assets/partnerposter.jpg",
-            "thumbnail": "/assets/partnerthumnail.jpg"
-        },
-        {
-            "id": "8",
-            "title": "Anabelle",
-            "release_year": "2014",
-            "duration": "1h 39m",
-            "genre": "Horror, Mystery, Thriller",
-            "overview": "A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists.",
-            "starring": "Ward Horton, Annabelle Wallis, Alfre Woodard",
-            "poster": "/assets/anabelleposter.jpg",
-            "thumbnail": "/assets/anabellethumbnail.jpg"
-        },
-        {
-            "id": "9",
-            "title": "The Mother",
-            "release_year": "2023",
-            "duration": "1h 58m",
-            "genre": "Action, Thriller",
-            "overview": "A military-trained assassin comes out of hiding to protect the daughter she's never met from ruthless criminals gunning for revenge.",
-            "starring": "Jennifer Lopez, Joseph Fiennes, Gael García Bernal",
-            "poster": "/assets/themotherposter.jpg",
-            "thumbnail": "/assets/themotherthumbnail.jpg"
-        },
-        {
-            "id": "10",
-            "title": "M.S. Dhoni: The Untold Story",
-            "release_year": "2016",
-            "duration": "3h 4m",
-            "genre": "Biography, Drama, Sports",
-            "overview": "The untold story of Mahendra Singh Dhoni's journey from ticket collector to trophy collector - the world-cup-winning captain of the Indian Cricket Team.",
-            "starring": "Sushant Singh Rajput, Kiara Advani, Anupam Kher",
-            "poster": "/assets/msdhoniposter.jpg",
-            "thumbnail": "/assets/msdhonithumbnail.jpg"
-        }
-    ]
-}
+[
+    {
+        "id": "1",
+        "title": "3-Idiots",
+        "release_year": "2010",
+        "duration": "3h",
+        "genre": "Comedy, Drama",
+        "overview": "Two friends are searching for their long lost companion. They revisit their college days and recall the memories of their friend who inspired them to think differently, even as the rest of the world called them idiots.",
+        "starring": "Aamir Khan,Madhvan, Sharman Joshi, Kareena Kapoor",
+        "poster": "/assets/3idiotsposter.jpg",
+        "thumbnail": "/assets/3idiotsthumnail.jpg",
+        "preview": [
+            "/assets/3idiots/1.jpg",
+            "/assets/3idiots/2.jpg",
+            "/assets/3idiots/3.jpg",
+            "/assets/3idiots/4.jpg"
+        ]
+    },
+    {
+        "id": "2",
+        "title": "Extraction",
+        "release_year": "2020",
+        "duration": "1h 58m",
+        "genre": "Action",
+        "overview": "A hardened gun-for-hire's latest mission becomes a soul-searching race to survive when he's sent into Bangladesh to rescue a drug lord's kidnapped son.",
+        "starring": "Chris Hemsworth,Rudhraksh Jaiswal,Randeep Hooda",
+        "poster": "/assets/extractionposter.jpg",
+        "thumbnail": "/assets/extractionthumbnail.jpg",
+        "preview": [
+            "/assets/extraction/1.jpg",
+            "/assets/extraction/2.jpg",
+            "/assets/extraction/3.jpg",
+            "/assets/extraction/4.jpg"
+        ]
+    },
+    {
+        "id": "3",
+        "title": "Barbie",
+        "release_year": "2023",
+        "duration": "1h 58m",
+        "genre": "Adventure, Comedy, Fantasy",
+        "overview": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
+        "starring": "Margot Robbie, Ryan Gosling, America Ferrera, Kate McKinnon",
+        "poster": "/assets/barbieposter.jpg",
+        "thumbnail": "/assets/barbiethumbnail.jpg",
+        "preview": [
+            "/assets/barbie/1.jpg",
+            "/assets/barbie/2.jpg",
+            "/assets/barbie/3.jpg",
+            "/assets/barbie/4.jpg"
+        ]
+    },
+    {
+        "id": "4",
+        "title": "SeetaRaman",
+        "release_year": "2022",
+        "duration": "2h 43m",
+        "genre": "Action, Drama, Mystery",
+        "overview": "An orphan soldier, Lieutenant Ram's life changes, after he gets a letter from a girl named Sita. He meets her and love blossoms between them. When he comes back to his camp in Kashmir,After he gets caught in jail, he sends a letter to Sita which won't reach her.",
+        "starring": "Dulquer Salmaan, Mrunal Thakur, Rashmika Mandanna",
+        "poster": "/assets/seetaramanposter.jpg",
+        "thumbnail": "/assets/seetaramanthumbnail.jpg",
+        "preview": [
+            "/assets/seetaraman/1.jpg",
+            "/assets/seetaraman/2.jpg",
+            "/assets/seetaraman/3.jpg",
+            "/assets/seetaraman/4.jpg"
+        ]
+    },
+    {
+        "id": "5",
+        "title": "Life of Pi",
+        "release_year": "2012",
+        "duration": "2h 7m",
+        "genre": "Adventure, Drama, Fantasy",
+        "overview": "A young man who survives a disaster at sea is hurtled into an epic journey of adventure and discovery. While cast away, he forms an unexpected connection with another survivor: a fearsome Bengal tiger.",
+        "starring": " Suraj Sharma, Irrfan Khan, Adil Hussain",
+        "poster": "/assets/lifeofpi.jpg",
+        "thumbnail": "/assets/lifeofpithumbnail.jpg",
+        "preview": [
+            "/assets/lifeofpi/1.jpg",
+            "/assets/lifeofpi/2.jpg",
+            "/assets/lifeofpi/3.jpg",
+            "/assets/lifeofpi/4.jpg"
+        ]
+    },
+    {
+        "id": "6",
+        "title": "Beauty and The Beast",
+        "release_year": "2017",
+        "duration": "2h 9m",
+        "genre": "Adventure, Family, Fantasy",
+        "overview": "A selfish Prince is cursed to become a monster for the rest of his life, unless he learns to fall in love with a beautiful young woman he keeps prisoner.",
+        "starring": "Emma Watson, Dan Stevens, Luke Evans",
+        "poster": "/assets/beautyandthebeastposter.jpg",
+        "thumbnail": "/assets/beautyandthebeastthumbnail.webp",
+        "preview": [
+            "/assets/beautyandthebeast/1.jpg",
+            "/assets/beautyandthebeast/2.jpg",
+            "/assets/beautyandthebeast/3.jpg",
+            "/assets/beautyandthebeast/4.jpg"
+        ]
+    },
+    {
+        "id": "7",
+        "title": "Partner",
+        "release_year": "2007",
+        "duration": "2h 35m",
+        "genre": "Comedy, Drama, Romance",
+        "overview": "A 'Love Guru' assists other males, woos a widowed single mother, but becomes embroiled in controversies.",
+        "starring": "Salman Khan, Govinda, Lara Dutta",
+        "poster": "/assets/partnerposter.jpg",
+        "thumbnail": "/assets/partnerthumnail.jpg",
+        "preview": [
+            "/assets/partner/1.jpg",
+            "/assets/partner/2.jpg",
+            "/assets/partner/3.jpg",
+            "/assets/partner/4.jpg"
+        ]
+    },
+    {
+        "id": "8",
+        "title": "Anabelle",
+        "release_year": "2014",
+        "duration": "1h 39m",
+        "genre": "Horror, Mystery, Thriller",
+        "overview": "A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists.",
+        "starring": "Ward Horton, Annabelle Wallis, Alfre Woodard",
+        "poster": "/assets/anabelleposter.jpg",
+        "thumbnail": "/assets/anabellethumbnail.jpg",
+        "preview": [
+            "/assets/anabelle/1.jpg",
+            "/assets/anabelle/2.jpg",
+            "/assets/anabelle/3.jpg",
+            "/assets/anabelle/4.jpg"
+        ]
+    },
+    {
+        "id": "9",
+        "title": "The Mother",
+        "release_year": "2023",
+        "duration": "1h 58m",
+        "genre": "Action, Thriller",
+        "overview": "A military-trained assassin comes out of hiding to protect the daughter she's never met from ruthless criminals gunning for revenge.",
+        "starring": "Jennifer Lopez, Joseph Fiennes, Gael García Bernal",
+        "poster": "/assets/themotherposter.jpg",
+        "thumbnail": "/assets/themotherthumbnail.jpg",
+        "preview": [
+            "/assets/themother/1.jpg",
+            "/assets/themother/2.jpg",
+            "/assets/themother/3.jpg",
+            "/assets/themother/4.jpg"
+        ]
+    },
+    {
+        "id": "10",
+        "title": "M.S. Dhoni: The Untold Story",
+        "release_year": "2016",
+        "duration": "3h 4m",
+        "genre": "Biography, Drama, Sports",
+        "overview": "The untold story of Mahendra Singh Dhoni's journey from ticket collector to trophy collector - the world-cup-winning captain of the Indian Cricket Team.",
+        "starring": "Sushant Singh Rajput, Kiara Advani, Anupam Kher",
+        "poster": "/assets/msdhoniposter.jpg",
+        "thumbnail": "/assets/msdhonithumbnail.jpg",
+        "preview": [
+            "/assets/msdhoni/1.jpg",
+            "/assets/msdhoni/2.jpg",
+            "/assets/msdhoni/3.jpg",
+            "/assets/msdhoni/4.jpg"
+        ]
+    }
+]

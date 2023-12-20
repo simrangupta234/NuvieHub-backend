@@ -40,11 +40,11 @@ const movieSchema = mongoose.Schema(
     },
     preview:{
       type: Array,
-      require: [true, "Give previews for the movie"]
-    }
+      require: [true, "Give previews for the movie"],
+    },
   },
   {
-    timeStamps: true,
+    timestamps: true,
   }
 );
 

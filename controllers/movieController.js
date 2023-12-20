@@ -23,7 +23,7 @@ const getMovie = asyncHandler(async (req, res) => {
 });
 
 //@desc Get a movie
-//@route GET /api/movies
+//@route POST /api/movies
 //@access public
 const addMovie = asyncHandler(async (req, res) => {
   console.log("The req body is : ", req.body);

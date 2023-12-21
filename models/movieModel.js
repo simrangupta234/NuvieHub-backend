@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const movieSchema = mongoose.Schema(
   {
@@ -16,11 +16,11 @@ const movieSchema = mongoose.Schema(
     },
     duration: {
       type: String,
-      require: [true, "Give the duration"]
+      require: [true, "Give the duration"],
     },
     genre: {
       type: String,
-      require: [true, "Give the genre of the movie"]
+      require: [true, "Give the genre of the movie"],
     },
     overview: {
       type: String,
@@ -31,21 +31,35 @@ const movieSchema = mongoose.Schema(
       require: [true, "Provide stars of the movie"],
     },
     poster: {
-      type: String,
-      require: [true, "Give poster for the movie"],
+      data: Buffer,
+      contentType: String,
     },
     thumbnail: {
-      type: String,
-      require: [true, "Give thumbnail for the movie"],
+      data: Buffer,
+      contentType: String,
     },
-    preview:{
-      type: Array,
-      require: [true, "Give previews for the movie"],
-    },
+    preview: [
+      {
+        data: Buffer,
+        contentType: String,
+      },
+      {
+        data: Buffer,
+        contentType: String,
+      },
+      {
+        data: Buffer,
+        contentType: String,
+      },
+      {
+        data: Buffer,
+        contentType: String,
+      },
+    ],
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = mongoose.model("Movie" , movieSchema)
+module.exports = mongoose.model("Movie", movieSchema);

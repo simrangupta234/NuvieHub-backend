@@ -12,7 +12,9 @@ const {
 // const validateToken = require("../middlewares/validateTokenHandler");
 
 // router.use(validateToken);
-router.route("/").post(addMovie).get(getMovies);
+router.route("/").get(getMovies);
 router.route("/:id").get(getMovie).put(updateMovie).delete(deleteMovie);
+
+
 
 module.exports = router;

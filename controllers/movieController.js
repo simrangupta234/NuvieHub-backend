@@ -25,52 +25,52 @@ const getMovie = asyncHandler(async (req, res) => {
 //@desc Get a movie
 //@route POST /api/movies
 //@access public
-const addMovie = asyncHandler(async (req, res) => {
-  console.log("The req body is : ", req.body);
-  const {
-    id,
-    title,
-    release_year,
-    duration,
-    genre,
-    overview,
-    starring,
-    poster,
-    thumbnail,
-    preview
-  } = req.body;
+// const addMovie = asyncHandler(async (req, res) => {
+//   console.log("The req body is : ", req.body);
+//   const {
+//     id,
+//     title,
+//     release_year,
+//     duration,
+//     genre,
+//     overview,
+//     starring,
+//     poster,
+//     thumbnail,
+//     preview
+//   } = req.body;
 
-  if (
-    !id ||
-    !title ||
-    !release_year ||
-    !duration ||
-    !genre ||
-    !overview ||
-    !starring ||
-    !poster ||
-    !thumbnail||
-    !preview
-  ) {
-    res.status(400);
-    throw new Error("All fields are mandatory");
-  }
+//   if (
+//     !id ||
+//     !title ||
+//     !release_year ||
+//     !duration ||
+//     !genre ||
+//     !overview ||
+//     !starring ||
+//     !poster ||
+//     !thumbnail ||
+//     !preview
+//   ) {
+//     res.status(400);
+//     throw new Error("All fields are mandatory");
+//   }
 
-  const movie = await Movie.create({
-    id,
-    title,
-    release_year,
-    duration,
-    genre,
-    overview,
-    starring,
-    poster,
-    thumbnail,
-    preview
-  });
+//   const movie = await Movie.create({
+//     id,
+//     title,
+//     release_year,
+//     duration,
+//     genre,
+//     overview,
+//     starring,
+//     poster,
+//     thumbnail,
+//     preview
+//   });
 
-  res.status(201).json(movie);
-});
+//   res.status(201).json(movie);
+// });
 
 
 //@desc Update A movie
@@ -107,7 +107,7 @@ module.exports = {
 
   getMovies,
   getMovie,
-  addMovie,
+  // addMovie,
   updateMovie,
   deleteMovie,
 

@@ -31,29 +31,23 @@ const movieSchema = mongoose.Schema(
       require: [true, "Provide stars of the movie"],
     },
     poster: {
-      data: Buffer,
-      contentType: String,
+      type: String,
     },
     thumbnail: {
-      data: Buffer,
-      contentType: String,
+      type: String,
     },
     preview: [
       {
-        data: Buffer,
-        contentType: String,
+        type: String,
       },
       {
-        data: Buffer,
-        contentType: String,
+        type: String,
       },
       {
-        data: Buffer,
-        contentType: String,
+        type: String,
       },
       {
-        data: Buffer,
-        contentType: String,
+        type: String,
       },
     ],
   },

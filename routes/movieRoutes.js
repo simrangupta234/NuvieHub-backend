@@ -4,10 +4,8 @@ const router = express.Router();
 const {
   getMovies,
   getMovie,
-  addMovie,
   updateMovie,
   deleteMovie,
-  movieApi,
 } = require("../controllers/movieController");
 // const validateToken = require("../middlewares/validateTokenHandler");
 

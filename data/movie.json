@@ -10,10 +10,10 @@
         "poster": "/assets/3idiotsposter.jpg",
         "thumbnail": "/assets/3idiotsthumnail.jpg",
         "preview": [
-            "/assets/3idiots/1.jpg",
-            "/assets/3idiots/2.jpg",
-            "/assets/3idiots/3.jpg",
-            "/assets/3idiots/4.jpg"
+            "/assets/3idiots1.jpg",
+            "/assets/3idiots2.jpg",
+            "/assets/3idiots3.jpg",
+            "/assets/3idiots4.jpg"
         ]
     },
     {
@@ -27,10 +27,10 @@
         "poster": "/assets/extractionposter.jpg",
         "thumbnail": "/assets/extractionthumbnail.jpg",
         "preview": [
-            "/assets/extraction/1.jpg",
-            "/assets/extraction/2.jpg",
-            "/assets/extraction/3.jpg",
-            "/assets/extraction/4.jpg"
+            "/assets/extraction1.jpg",
+            "/assets/extraction2.jpg",
+            "/assets/extraction3.jpg",
+            "/assets/extraction4.jpg"
         ]
     },
     {
@@ -44,10 +44,10 @@
         "poster": "/assets/barbieposter.jpg",
         "thumbnail": "/assets/barbiethumbnail.jpg",
         "preview": [
-            "/assets/barbie/1.jpg",
-            "/assets/barbie/2.jpg",
-            "/assets/barbie/3.jpg",
-            "/assets/barbie/4.jpg"
+            "/assets/barbie1.jpg",
+            "/assets/barbie2.jpg",
+            "/assets/barbie3.jpg",
+            "/assets/barbie4.jpg"
         ]
     },
     {
@@ -61,10 +61,10 @@
         "poster": "/assets/seetaramanposter.jpg",
         "thumbnail": "/assets/seetaramanthumbnail.jpg",
         "preview": [
-            "/assets/seetaraman/1.jpg",
-            "/assets/seetaraman/2.jpg",
-            "/assets/seetaraman/3.jpg",
-            "/assets/seetaraman/4.jpg"
+            "/assets/seetaraman1.jpg",
+            "/assets/seetaraman2.jpg",
+            "/assets/seetaraman3.jpg",
+            "/assets/seetaraman4.jpg"
         ]
     },
     {
@@ -78,10 +78,10 @@
         "poster": "/assets/lifeofpi.jpg",
         "thumbnail": "/assets/lifeofpithumbnail.jpg",
         "preview": [
-            "/assets/lifeofpi/1.jpg",
-            "/assets/lifeofpi/2.jpg",
-            "/assets/lifeofpi/3.jpg",
-            "/assets/lifeofpi/4.jpg"
+            "/assets/lifeofpi1.jpg",
+            "/assets/lifeofpi2.jpg",
+            "/assets/lifeofpi3.jpg",
+            "/assets/lifeofpi4.jpg"
         ]
     },
     {
@@ -95,10 +95,10 @@
         "poster": "/assets/beautyandthebeastposter.jpg",
         "thumbnail": "/assets/beautyandthebeastthumbnail.webp",
         "preview": [
-            "/assets/beautyandthebeast/1.jpg",
-            "/assets/beautyandthebeast/2.jpg",
-            "/assets/beautyandthebeast/3.jpg",
-            "/assets/beautyandthebeast/4.jpg"
+            "/assets/beautyandthebeast1.jpg",
+            "/assets/beautyandthebeast2.jpg",
+            "/assets/beautyandthebeast3.jpg",
+            "/assets/beautyandthebeast4.jpg"
         ]
     },
     {
@@ -112,10 +112,10 @@
         "poster": "/assets/partnerposter.jpg",
         "thumbnail": "/assets/partnerthumnail.jpg",
         "preview": [
-            "/assets/partner/1.jpg",
-            "/assets/partner/2.jpg",
-            "/assets/partner/3.jpg",
-            "/assets/partner/4.jpg"
+            "/assets/partner1.jpg",
+            "/assets/partner2.jpg",
+            "/assets/partner3.jpg",
+            "/assets/partner4.jpg"
         ]
     },
     {
@@ -129,10 +129,10 @@
         "poster": "/assets/anabelleposter.jpg",
         "thumbnail": "/assets/anabellethumbnail.jpg",
         "preview": [
-            "/assets/anabelle/1.jpg",
-            "/assets/anabelle/2.jpg",
-            "/assets/anabelle/3.jpg",
-            "/assets/anabelle/4.jpg"
+            "/assets/anabelle1.jpg",
+            "/assets/anabelle2.jpg",
+            "/assets/anabelle3.jpg",
+            "/assets/anabelle4.jpg"
         ]
     },
     {
@@ -146,10 +146,10 @@
         "poster": "/assets/themotherposter.jpg",
         "thumbnail": "/assets/themotherthumbnail.jpg",
         "preview": [
-            "/assets/themother/1.jpg",
-            "/assets/themother/2.jpg",
-            "/assets/themother/3.jpg",
-            "/assets/themother/4.jpg"
+            "/assets/themother1.jpg",
+            "/assets/themother2.jpg",
+            "/assets/themother3.jpg",
+            "/assets/themother4.jpg"
         ]
     },
     {
@@ -163,10 +163,10 @@
         "poster": "/assets/msdhoniposter.jpg",
         "thumbnail": "/assets/msdhonithumbnail.jpg",
         "preview": [
-            "/assets/msdhoni/1.jpg",
-            "/assets/msdhoni/2.jpg",
-            "/assets/msdhoni/3.jpg",
-            "/assets/msdhoni/4.jpg"
+            "/assets/msdhoni1.jpg",
+            "/assets/msdhoni2.jpg",
+            "/assets/msdhoni3.jpg",
+            "/assets/msdhoni4.jpg"
         ]
     }
 ]

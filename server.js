@@ -5,8 +5,8 @@ const port = process.env.PORT || 3000;
 const connectDb = require("./config/dbConnection");
 const cors = require("cors");
 const multer = require("multer");
-const fs = require("fs");
 const Movie = require("./models/movieModel");
+const path = require("path");
 
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
@@ -33,6 +33,10 @@ app.post("/api/movies", upload.array("testImage", 6), async (req, res) => {
   const { id, title, release_year, duration, genre, overview, starring } =
     req.body;
 
+  var files = req.files;
+  // console.log(files);
+  const filePath = files.map((file) => file.path);
+  // console.log(filePath);
   const saveImg = new Movie({
     id,
     title,
@@ -41,26 +45,9 @@ app.post("/api/movies", upload.array("testImage", 6), async (req, res) => {
     genre,
     overview,
     starring,
-    poster: {
-      data: fs.readFileSync(req.files[0].path),
-    },
-    thumbnail: {
-      data: fs.readFileSync(req.files[1].path),
-    },
-    preview: [
-      {
-        data: fs.readFileSync(req.files[2].path),
-      },
-      {
-        data: fs.readFileSync(req.files[3].path),
-      },
-      {
-        data: fs.readFileSync(req.files[4].path),
-      },
-      {
-        data: fs.readFileSync(req.files[5].path),
-      },
-    ],
+    poster: filePath[0],
+    thumbnail: filePath[1],
+    preview: [filePath[2], filePath[3], filePath[4], filePath[5]],
   });
 
   try {

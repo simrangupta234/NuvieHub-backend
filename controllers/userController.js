@@ -3,20 +3,45 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 const userModel = require("../models/userModel");
+const path = require("path");
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, "profiles");
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
 
 //@desc signup a user
 //@route POST /api/users/signup
 //@access public
 const signupUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-  if (!email || !password) {
-    res.status(400);
-    throw new Error("All fields are mandatory!");
-  }
+  // if (!email || !password) {
+  //   res.status(400);
+  //   throw new Error("All fields are mandatory!");
+  // }
   const userAvailable = await User.findOne({ email });
   if (userAvailable) {
-    res.status(400);
-    throw new Error("User already signedup!");
+    const saveImg = new User({
+      email,
+      password,
+      profilePic: req.file.path,
+    });
+
+    try {
+      const result = await saveImg.save();
+      console.log("Images are saved");
+      res.status(201).json(result);
+    } catch (err) {
+      console.error(err, "Error occurred");
+      res.status(500).json({ error: "Internal Server Error" });
+    }
   }
 
   //Hash password
@@ -101,4 +126,31 @@ const loginUser2 = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { signupUser, loginUser, currentUser, loginUser2 };
+//@desc list of user
+//@route GET /api/users
+//@access public
+const signedupUser = asyncHandler(async (req, res) => {
+  const users = await User.find();
+  res.status(200).json(users);
+});
+
+// //@desc add user
+// //@route POST /api/users
+const addUser = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+  const userAvailable = await User.findOne({ email });
+  if (userAvailable) {
+  } else {
+    res.json({ message: "no user" });
+  }
+});
+
+module.exports = {
+  signupUser,
+  loginUser,
+  currentUser,
+  loginUser2,
+  signedupUser,
+  addUser,
+};

@@ -2,57 +2,33 @@ const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
-const userModel = require("../models/userModel");
 const path = require("path");
-const multer = require("multer");
-
-const storage = multer.diskStorage({
-  destination: function (req, file, callback) {
-    callback(null, "profiles");
-  },
-  filename: function (req, file, callback) {
-    callback(null, file.originalname);
-  },
-});
-
-const upload = multer({ storage: storage });
 
 //@desc signup a user
 //@route POST /api/users/signup
 //@access public
 const signupUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
-  // if (!email || !password) {
-  //   res.status(400);
-  //   throw new Error("All fields are mandatory!");
-  // }
-  const userAvailable = await User.findOne({ email });
-  if (userAvailable) {
-    const saveImg = new User({
-      email,
-      password,
-      profilePic: req.file.path,
-    });
+  const { email, password, role, name, dob, gender, no, address } = req.body;
 
-    try {
-      const result = await saveImg.save();
-      console.log("Images are saved");
-      res.status(201).json(result);
-    } catch (err) {
-      console.error(err, "Error occurred");
-      res.status(500).json({ error: "Internal Server Error" });
-    }
+  if (!email || !password) {
+    res.status(400);
+    throw new Error("All fields are mandatory!");
   }
 
   //Hash password
   const hashedPassword = await bcrypt.hash(password, 10);
-  // console.log("Hashed Password: ", hashedPassword);
   const user = await User.create({
     email,
     password: hashedPassword,
+    role,
+    name,
+    dob,
+    gender,
+    no,
+    address,
+    profilePic: req.file.path.replace(/\\/g, "/"),
   });
 
-  // console.log(`User created ${user}`);
   if (user) {
     const accessToken = jwt.sign(
       {
@@ -64,21 +40,18 @@ const signupUser = asyncHandler(async (req, res) => {
       process.env.ACCESS_TOKEN_SECERT,
       { expiresIn: "15m" }
     );
-    res
-      .status(201)
-      .json({ _id: user.id, email: user.email, accessToken: accessToken });
+    res.status(201).json({ user, accessToken: accessToken });
   } else {
     res.status(400);
     throw new Error("User data is not valid");
   }
-  // res.json({ message: "signup the user" });
 });
 
 //@desc Login user
 //@route POST /api/users/login
 //@access public
 const loginUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, role, name, dob, gender, no, address } = req.body;
   if (!email || !password) {
     res.status(400);
     throw new Error("All fields are mandatory!");
@@ -99,7 +72,7 @@ const loginUser = asyncHandler(async (req, res) => {
       process.env.ACCESS_TOKEN_SECERT,
       { expiresIn: "1m" }
     );
-    res.status(200).json({ accessToken });
+    res.status(200).json({ accessToken, user });
   } else {
     res.json({ message: "incorrect password" });
   }
@@ -116,8 +89,7 @@ const currentUser = asyncHandler(async (req, res) => {
 //@route POST /api/users/login2
 //@access public
 const loginUser2 = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
-
+  const { email, password, role, name, dob, gender, no, address } = req.body;
   const userAvailable = await User.findOne({ email });
   if (userAvailable) {
     res.json({ email: email });
@@ -129,21 +101,47 @@ const loginUser2 = asyncHandler(async (req, res) => {
 //@desc list of user
 //@route GET /api/users
 //@access public
-const signedupUser = asyncHandler(async (req, res) => {
+const getUsers = asyncHandler(async (req, res) => {
   const users = await User.find();
   res.status(200).json(users);
 });
 
 // //@desc add user
-// //@route POST /api/users
-const addUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
+// //@route PUT /api/users
+const updateUser = asyncHandler(async (req, res) => {
+  var { name, email, dob, gender, no, address } = req.body;
 
-  const userAvailable = await User.findOne({ email });
-  if (userAvailable) {
-  } else {
-    res.json({ message: "no user" });
+  const userToUpdate = await User.findOne({ email });
+
+  if (!userToUpdate) {
+    res.status(404);
+    throw new Error("User not found");
   }
+
+  userToUpdate.name = name;
+  userToUpdate.dob = dob;
+  userToUpdate.gender = gender;
+  userToUpdate.no = no;
+  userToUpdate.address = address;
+  if (req.file) {
+    const normalizedPath = path.join("/", path.normalize(req.file.path));
+    userToUpdate.profilePic = normalizedPath.replace(/\\/g, "/");
+  }
+
+  const updatedUser = await userToUpdate.save();
+
+  res.json(updatedUser);
+});
+
+//@desc get User by Id
+//@route GET /api/users/id
+const getUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+  if (!user) {
+    res.status(404);
+    throw new Error("User not found");
+  }
+  res.status(200).json(user);
 });
 
 module.exports = {
@@ -151,6 +149,7 @@ module.exports = {
   loginUser,
   currentUser,
   loginUser2,
-  signedupUser,
-  addUser,
+  getUsers,
+  updateUser,
+  getUser,
 };

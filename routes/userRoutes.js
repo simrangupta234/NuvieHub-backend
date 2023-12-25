@@ -17,16 +17,18 @@ const {
   currentUser,
   loginUser,
   loginUser2,
-  signedupUser,
-  addUser,
+  getUser,
+  getUsers,
+  updateUser,
 } = require("../controllers/userController");
 const validateToken = require("../middlewares/validateTokenHandler");
 
 const router = express.Router();
 
-router.get("/", signedupUser);
-router.post("/" , upload.single("profile"), addUser);
-router.post("/signup", signupUser);
+router.get("/", getUsers);
+router.get("/:id", getUser)
+router.put("/:id" , upload.single("profile"), updateUser);
+router.post("/signup", upload.single("profile"), signupUser);
 
 router.post("/login2", loginUser2);
 router.post("/login", loginUser);

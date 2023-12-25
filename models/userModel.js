@@ -9,7 +9,7 @@ const userSchema = mongoose.Schema(
     },
     profilePic:{
       type: String,
-      default: "/profiles/profilePicture.png"
+      default: "/profiles/profilePicture.jpg"
     },
     name: {
       type: String,
@@ -28,12 +28,10 @@ const userSchema = mongoose.Schema(
     },
     email: {
       type: String,
-      // required: [true, "Please add the user email address"],
       unique: [true, "Email address already taken"],
     },
     password: {
       type: String,
-      // required: [true, "Please add the user password"],
     },
   },
   {

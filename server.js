@@ -34,9 +34,7 @@ app.post("/api/movies", upload.array("testImage", 6), async (req, res) => {
     req.body;
 
   var files = req.files;
-  // console.log(files);
   const filePath = files.map((file) => file.path);
-  // console.log(filePath);
   const saveImg = new Movie({
     id,
     title,
@@ -61,6 +59,8 @@ app.post("/api/movies", upload.array("testImage", 6), async (req, res) => {
 });
 
 app.use("/assets", express.static("assets"));
+app.use("/profiles", express.static("profiles"));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/api/movies", require("./routes/movieRoutes"));

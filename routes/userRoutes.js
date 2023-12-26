@@ -27,7 +27,7 @@ const router = express.Router();
 
 router.get("/", getUsers);
 router.get("/:id", getUser)
-router.put("/:id" , upload.single("profile"), updateUser);
+router.patch("/:id" , upload.single("profile"), updateUser);
 router.post("/signup", upload.single("profile"), signupUser);
 
 router.post("/login2", loginUser2);

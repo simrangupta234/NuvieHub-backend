@@ -109,7 +109,7 @@ const getUsers = asyncHandler(async (req, res) => {
 // //@desc add user
 // //@route PUT /api/users
 const updateUser = asyncHandler(async (req, res) => {
-  var { name, email, dob, gender, no, address } = req.body;
+  const { name, email, dob, gender, no, address } = req.body;
 
   const userToUpdate = await User.findOne({ email });
 

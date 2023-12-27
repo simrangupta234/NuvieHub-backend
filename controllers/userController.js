@@ -107,10 +107,9 @@ const getUsers = asyncHandler(async (req, res) => {
 });
 
 // //@desc add user
-// //@route PUT /api/users
+// //@route PATCH /api/users/:id
 const updateUser = asyncHandler(async (req, res) => {
   const { name, email, dob, gender, no, address } = req.body;
-
   const userToUpdate = await User.findOne({ email });
 
   if (!userToUpdate) {
@@ -123,6 +122,7 @@ const updateUser = asyncHandler(async (req, res) => {
   userToUpdate.gender = gender;
   userToUpdate.no = no;
   userToUpdate.address = address;
+
   if (req.file) {
     const normalizedPath = path.join("/", path.normalize(req.file.path));
     userToUpdate.profilePic = normalizedPath.replace(/\\/g, "/");

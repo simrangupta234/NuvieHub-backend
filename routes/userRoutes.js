@@ -6,7 +6,9 @@ const storage = multer.diskStorage({
     callback(null, "profiles");
   },
   filename: function (req, file, callback) {
+    console.log("inside storage", file.originalname);
     callback(null, file.originalname);
+
   },
 });
 

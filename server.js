@@ -48,7 +48,19 @@ app.post("/api/movies", upload.array("testImage", 6), async (req, res) => {
     preview: [filePath[2], filePath[3], filePath[4], filePath[5]],
   });
 
+
+    const normalizedPath1 = path.join("/", path.normalize(filePath[0]));
+    saveImg.poster = normalizedPath1.replace(/\\/g, "/");
+    const normalizedPath2 = path.join("/", path.normalize(filePath[1]));
+    saveImg.thumbnail = normalizedPath2.replace(/\\/g, "/");
+
+    for(var i =2 ; i<6; i++){
+      const normalizedPath = path.join("/", path.normalize(filePath[i]));
+      saveImg.preview[i-2] = normalizedPath.replace(/\\/g, "/");
+    }
+
   try {
+  
     const result = await saveImg.save();
     console.log("Images are saved");
     res.status(201).json(result);

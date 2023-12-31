@@ -54,10 +54,12 @@ app.post("/api/movies", upload.array("testImage", 6), async (req, res) => {
     const normalizedPath2 = path.join("/", path.normalize(filePath[1]));
     saveImg.thumbnail = normalizedPath2.replace(/\\/g, "/");
 
-    for(var i =2 ; i<6; i++){
-      const normalizedPath = path.join("/", path.normalize(filePath[i]));
-      saveImg.preview[i-2] = normalizedPath.replace(/\\/g, "/");
+  
+    for (var i = 2; i < 6; i++) {
+      const normalizedPath = path.join("/", path.normalize(filePath[i - 2]));
+      saveImg.preview[i - 2] = normalizedPath.replace(/\\/g, "/");
     }
+    
 
   try {
   

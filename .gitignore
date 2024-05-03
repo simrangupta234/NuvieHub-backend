@@ -1,0 +1,22 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore any files with .env extension
+*.env
+
+# Ignore log files
+*.log
+
+# Ignore compiled binaries
+*.exe
+*.dll
+*.so
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore IntelliJ IDEA files
+.idea/
+
+# Ignore Visual Studio Code settings
+.vscode/

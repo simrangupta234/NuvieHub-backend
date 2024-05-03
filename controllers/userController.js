@@ -15,6 +15,13 @@ const signupUser = asyncHandler(async (req, res) => {
     throw new Error("All fields are mandatory!");
   }
 
+  let profilePicPath = "/profiles/profilePicture.jpg";
+
+  if (req.file) {
+    profilePicPath = req.file.path.replace(/\\/g, "/");
+  }
+
+
   //Hash password
   const hashedPassword = await bcrypt.hash(password, 10);
   const user = await User.create({
@@ -26,7 +33,7 @@ const signupUser = asyncHandler(async (req, res) => {
     gender,
     no,
     address,
-    profilePic: req.file.path.replace(/\\/g, "/"),
+    profilePic: profilePicPath,
   });
 
   if (user) {
